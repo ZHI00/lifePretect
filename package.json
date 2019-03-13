@@ -2,7 +2,6 @@
   "name": "lifeProductHtml",
   "version": "1.0.0",
   "description": "A Vue.js project",
-  "repositories": "git@github.com:ZHI00/lifePretect.git",
   "author": "ZHI",
   "private": true,
   "scripts": {
@@ -12,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/ZHI00/lifePretect.git"
+    "url": "git@github.com:ZHI00/lifePretect.git"
   },
   "bugs": {
     "url": "https://github.com/ZHI00/lifePretect/issues"

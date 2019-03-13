@@ -359,57 +359,11 @@ export default {
       // 确定时间
       TimePickerConfirm(value) {
         
-        console.log(value)
-        const yearReg=/20[0-9]{2}/ig;
-        const dayReg=/[0-9]{2}/ig;
-        const timeReg=/[0-2][0-9]:[0-5][0-9]:[0-5][0-9]/ig;
-        const month=()=>{
-          var m=/[a-z]{3}\s([a-z]{3})/ig;
-          switch(m.exec(value)[1]){
-            case 'Jan':
-              return '01';
-            case 'Feb':
-              return '02';
-            case 'Mar':
-              return '03';
-            case 'Apr':
-              return '04';
-            case 'May':
-              return '05';
-            case 'Jun':
-              return '06';
-            case 'Jul':
-              return '07';
-            case 'Aug':
-              return '08';
-            case 'Sep':
-              return '09';
-            case 'Oct':
-              return '10';
-            case 'Nov':
-              return '11';
-            case 'Dec':
-              return '12';
-          }
-        }
-        // console.log(yearReg.exec(value));
-        console.log(month());
-
-        // this.getDate=yearReg.exec(value)[0]+"-"+month()+"-"+dayReg.exec(value)[0];
-
-        // this.getTime=timeReg.exec(value)[0];
-
-
-        // 拿到日期
-        // let date=this.saveData.date;
-        // date.year=yearReg.exec(value)[0];
-        // date.month=month();
-        // date.day=dayReg.exec(value)[0];
-        // date.time=timeReg.exec(value)[0];
-
-        // 显示日期
-        this.getDate=yearReg.exec(value)[0]+"-"+month()+"-"+dayReg.exec(value)[0];
-        this.getTime=timeReg.exec(value)[0];
+        console.log(value.getDate())
+       
+        let month=value.getMonth()+1;
+        this.getDate=value.getFullYear()+'-'+month+'-'+value.getDate();
+        this.getTime=value.getHours()+':'+value.getMinutes()+':'+value.getSeconds();
 
         console.log(this.getDate+' '+this.getTime)
         this.saveData.date=this.getDate+' '+this.getTime;

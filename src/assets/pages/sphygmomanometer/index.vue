@@ -1,7 +1,8 @@
 <template>
     <div class="his_container">
     <mt-loadmore 
-    :top-method="loadTop" :bottom-method="loadBottom" :bottom-all-loaded="allLoaded"
+    :bottom-method="loadBottom" 
+    :bottom-all-loaded="allLoaded"
     :autoFill="autofill"
     ref="loadmore">
         <div class="header">
@@ -194,10 +195,17 @@
                         name="1">
                             <!-- <span :class="statusLabel">{{statusText}}</span> -->
                             <div class="history_info">
-                                <div class="history_info_detail"
+                                <!-- 即将修改这里 -->
+                                    <div class="history_info_detail"
+                                    v-for="(item,index) in preset.history"
+                                    :key="index"
+                                    >{{item.textbefore}}<span class="history_info_detail_num"> 参数</span>  {{item.textafter}}</div>    
+                                
+
+                                <!-- <div class="history_info_detail"
                                 v-for="(item,index) in preset.items[navbarIndex]"
                                 :key="index"
-                                >{{item.textbefore}}<span class="history_info_detail_num"> 参数</span>  {{item.textafter}}</div>
+                                >{{item.textbefore}}<span class="history_info_detail_num"> 参数</span>  {{item.textafter}}</div> -->
 
 
                                 <!-- <p class="history_info_detail">舒张压<span>--</span>mmHg</p>
@@ -215,7 +223,7 @@
                             <!-- <span :class="statusLabel">{{statusText}}</span> -->
                             <div class="history_info">
                                 <p class="history_info_detail"
-                                v-for="(item,index) in preset.items[navbarIndex]"
+                                v-for="(item,index) in preset.history"
                                 :key="index"
                                 >{{item.textbefore}}<span class="history_info_detail_num"> 参数</span>  {{item.textafter}}</p>
                             </div>
@@ -243,8 +251,6 @@ import { Circle } from 'vant';
 import { Collapse, CollapseItem } from 'vant';
 import { Badge } from 'mint-ui';
 import { Loadmore } from 'mint-ui';
-// 导入预设
-// import historyRecord from '../../config/historyRecord.js';
 
 
 export default {
@@ -772,6 +778,9 @@ export default {
     .his_container .mint-button-text{
         color:#fff !important;
     }
+    .his_container .mint-loadmore-text{
+        font-size: 28px;
+    }
 </style>
 <style lang="scss" scoped>
     .his_container{
@@ -990,7 +999,7 @@ export default {
         flex-wrap: wrap;
     }
     .history_info_detail{
-        width:40%;
+        width:45%;
         margin:10px 0;
         font-size:24px;
         padding-left:40px;

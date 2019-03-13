@@ -70,7 +70,24 @@ export default {
       stepNum:false,  //这个是手环特有的
       timeFrame:false,  //这个是血糖专门的
       moreHistroy:true
-    }
+    },
+    history:[
+      {
+        textbefore:'收缩压',
+        num:'--',
+        textafter:'mmHg'
+      },
+      {
+        textbefore:'舒张压',
+        num:'--',
+        textafter:'mmHg'
+      },
+      {
+        textbefore:'心率',
+        num:'--',
+        textafter:'bpm'
+      },
+    ]
  
   },
   //肺活
@@ -123,7 +140,24 @@ export default {
       stepNum:false,  //这个是手环特有的
       timeFrame:false,  //这个是血糖专门的
       moreHistroy:true
-    }
+    },
+    history:[
+      {
+        textbefore:'肺活量',
+        num:'--',
+        textafter:'ml'
+      },
+      {
+        textbefore:'峰流量',
+        num:'--',
+        textafter:'mmol/L'
+      },
+      {
+        textbefore:'平均流速',
+        num:'--',
+        textafter:'mmol/L'
+      }
+    ]
   },
   //体脂
   bodyfat:{
@@ -209,7 +243,59 @@ export default {
       stepNum:false,  //这个是手环特有的
       timeFrame:false,  //这个是血糖专门的
       moreHistroy:true
-    }
+    },
+    history:[
+      {
+        textbefore:'体重',
+        num:'--',
+        textafter:''
+      },
+      {
+        textbefore:'体脂肪率',
+        num:'--',
+        textafter:''
+      },
+      {
+        textbefore:'BMI',
+        num:'--',
+        textafter:''
+      },
+      {
+        textbefore:'身体年龄',
+        num:'--',
+        textafter:''
+      },
+      {
+        textbefore:'腰臀比',
+        num:'--',
+        textafter:''
+      },
+      {
+        textbefore:'内脏脂肪',
+        num:'--',
+        textafter:''
+      },
+      {
+        textbefore:'人体水分',
+        num:'--',
+        textafter:''
+      },
+      {
+        textbefore:'人体肌肉',
+        num:'--',
+        textafter:''
+      },
+      {
+        textbefore:'骨骼重量',
+        num:'--',
+        textafter:''
+      },
+      {
+        textbefore:'基础代谢',
+        num:'--',
+        textafter:''
+      }
+    ]
  
   },
   // shouhuan
@@ -298,7 +384,49 @@ export default {
       stepNum:true,  //这个是手环特有的
       timeFrame:false,  //这个是血糖专门的
       moreHistroy:true
-    }
+    },
+    history:[
+      {
+        textbefore:'步数',
+        num:'--',
+        textafter:'步'
+      },
+      {
+        textbefore:'卡路里',
+        num:'--',
+        textafter:'千卡'
+      },
+      {
+        textbefore:'里程',
+        num:'--',
+        textafter:'公里'
+      },
+      {
+        textbefore:'心率',
+        num:'--',
+        textafter:'bpm'
+      },
+      {
+        textbefore:'睡眠时长',
+        num:'--',
+        textafter:'小时'
+      },
+      {
+        textbefore:'深睡',
+        num:'--',
+        textafter:'分钟'
+      },
+      {
+        textbefore:'浅睡',
+        num:'--',
+        textafter:'分钟'
+      },
+      {
+        textbefore:'苏醒',
+        num:'--',
+        textafter:'分钟'
+      },
+    ]
  
   },
   // xuetang
@@ -342,7 +470,14 @@ export default {
       stepNum:false,  //这个是手环特有的
       timeFrame:true,  //这个是血糖专门的
       moreHistroy:true
-    }
+    },
+    history:[
+      {
+        textbefore:'血糖浓度',
+        num:'--',
+        textafter:'mmol/L'
+      }
+    ]
  
   },
   // 血氧
@@ -404,7 +539,14 @@ export default {
       stepNum:false,  //这个是手环特有的
       timeFrame:false,  //这个是血糖专门的
       moreHistroy:true
-    }
+    },
+    history:[
+      {
+        textbefore:'血氧饱和度',
+        num:'--',
+        textafter:'%'
+      }
+    ]
  
   },
   // 血脂
@@ -539,7 +681,34 @@ export default {
       stepNum:false,  //这个是手环特有的
       timeFrame:false,  //这个是血糖专门的
       moreHistroy:true
-    }
+    },
+    history:[
+      {
+        textbefore:'卒中风险',
+        num:'--',
+        textafter:''
+      },
+      {
+        textbefore:'总胆固醇',
+        num:'--',
+        textafter:'mmol/L'
+      },
+      {
+        textbefore:'甘油三酯',
+        num:'--',
+        textafter:'mmol/L'
+      },
+      {
+        textbefore:'高密度脂蛋白胆固醇',
+        num:'--',
+        textafter:'mmol/L'
+      },
+      {
+        textbefore:'低密度脂蛋白肝固醇',
+        num:'--',
+        textafter:'mmol/L'
+      }
+    ]
  
   },
   // 尿酸
@@ -583,7 +752,14 @@ export default {
       stepNum:false,  //这个是手环特有的
       timeFrame:false,  //这个是血糖专门的
       moreHistroy:true
-    }
+    },
+    history:[
+      {
+        textbefore:'尿酸',
+        num:'--',
+        textafter:'mmol/L'
+      }
+    ]
  
   },
   // 尿液
@@ -748,7 +924,64 @@ export default {
       stepNum:false,  //这个是手环特有的
       timeFrame:false,  //这个是血糖专门的
       moreHistroy:true
-    }
+    },
+    history:[
+      {
+        textbefore:'比重',
+        num:'--',
+        textafter:''
+      },
+      {
+        textbefore:'PH值',
+        num:'--',
+        textafter:''
+      },
+      {
+        textbefore:'葡萄糖',
+        num:'--',
+        textafter:''
+      },
+      {
+        textbefore:'蛋白质',
+        num:'--',
+        textafter:''
+      },
+      {
+        textbefore:'尿胆原',
+        num:'--',
+        textafter:''
+      },
+      {
+        textbefore:'潜血',
+        num:'--',
+        textafter:''
+      },
+      {
+        textbefore:'胆红素',
+        num:'--',
+        textafter:''
+      },
+      {
+        textbefore:'亚硝酸盐',
+        num:'--',
+        textafter:''
+      },
+      {
+        textbefore:'白细胞',
+        num:'--',
+        textafter:''
+      },
+      {
+        textbefore:'酮体',
+        num:'--',
+        textafter:''
+      },
+      {
+        textbefore:'VC维生素C',
+        num:'--',
+        textafter:''
+      }
+    ]
  
   },
   // tiwen
@@ -790,7 +1023,14 @@ export default {
       stepNum:false,  //这个是手环特有的
       timeFrame:false,  //这个是血糖专门的
       moreHistroy:true
-    }
+    },
+    history:[
+      {
+        textbefore:'摄氏度',
+        num:'--',
+        textafter:'℃'
+      }
+    ]
   },
   // 心电图
   elec:{

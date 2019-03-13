@@ -13,6 +13,7 @@
           class="account_input" 
           type="number"
           placeholder="请输入账号/手机号/医保卡"
+          @input="oninputAccount"
           >
         </div>
         <div class="password">
@@ -24,10 +25,25 @@
           class="password_input" 
           type="password"
           placeholder="请输入密码"
+          @input="oninputPassword"
           >
         </div>
 
-        <div class="submit"><span>确认绑定</span></div>
+        <div 
+        class="submit"
+        @click="onsubmit"
+        >
+          <span>确认绑定</span>
+          <div class="loading">
+            <van-loading 
+            v-if="showLoading"
+            size="50px"
+            color="#fff"
+            />
+          </div>
+        </div>
+      
+     
       </div>
       <span class="docLogin">
         医生登陆
@@ -36,12 +52,38 @@
 </template>
 
 <script>
+import { Dialog } from 'vant';
+import { Loading } from 'vant';
+import httpMethod from '../../api/axios.js';
 export default {
     data() {
         return {
-
+          accoValue:'',
+          passValue:'',
+          showLoading:true
         };
     },
+    methods:{
+      oninputAccount(event){
+        this.accoValue=event.target.value;
+      },
+      oninputPassword(event){
+        this.passValue=event.target.value;
+      },
+      onsubmit(event){
+        // 
+        this.showLoading=true;
+
+        // 点击后拉起请求
+        // 触发loading
+        // 拿到数据然后判断状态，应该在其他地方判断，不应该是点击按钮判断，而是拿到数据之后
+
+      
+      }
+    },
+    mounted(){
+      console.log(httpMethod)
+    }
 };
 </script>
 
@@ -64,6 +106,12 @@ export default {
     text-align: center;
     box-sizing: border-box;
     // text-align: left;
+    .loading{
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left:60%;
+    }
 
 
     input{
@@ -72,6 +120,7 @@ export default {
       width: 550px;
       font-size: 24px;
       height: 85px;
+      background-color: transparent;
     }
 
     &>.account{
@@ -120,9 +169,24 @@ export default {
 }
 
 </style>
-<style>
+<style lang="scss">
 html,body,#app{
   height: 100%;
 }
+.van-dialog__header{
+  font-size:36px;
+}
+.van-dialog__message{
+  font-size:30px;
+}
+.van-dialog__confirm{
+  height: 80px;
+  line-height:80px;
+  .van-button__text{
+    font-size:30px;
+  }
+}
+
 </style>
+
 

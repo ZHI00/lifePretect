@@ -7,6 +7,7 @@ import login from '../assets/pages/login/index.vue'
 import myinfo from '../assets/pages/myInfo'
 import health from '../assets/pages/healthManager/index.vue'
 import allData from '../assets/pages/healthInfo/index.vue'
+import alldatatest from '../assets/components/infoCrad/index.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -48,6 +49,11 @@ export default new Router({
       path:'/alldata',
       name:'alldata',
       component:allData
+    },
+    {
+      path:'/alldatatest',
+      name:'alldatatest',
+      component:alldatatest
     }
 
   ]

@@ -278,7 +278,6 @@ export default {
       .time{
         left: 20px;
         font-size: 26px;
-
       }
       .more{
         right: 150px;
