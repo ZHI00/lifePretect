@@ -13,7 +13,7 @@
           class="account_input" 
           type="number"
           placeholder="请输入账号/手机号/医保卡"
-          @input="oninputAccount"
+          v-model="accoValue"
           >
         </div>
         <div class="password">
@@ -25,19 +25,18 @@
           class="password_input" 
           type="password"
           placeholder="请输入密码"
-          @input="oninputPassword"
+          v-model="passValue"
           >
         </div>
 
         <div 
         class="submit"
-        @click="onsubmit"
+        @click="doHttp"
         >
           <span>确认绑定</span>
           <div class="loading">
             <van-loading 
             v-if="showLoading"
-            size="50px"
             color="#fff"
             />
           </div>
@@ -54,26 +53,60 @@
 <script>
 import { Dialog } from 'vant';
 import { Loading } from 'vant';
-import httpMethod from '../../api/axios.js';
+import http from '../../api/axios.js';
 export default {
     data() {
         return {
           accoValue:'',
           passValue:'',
-          showLoading:true
+          showLoading:false
         };
     },
     methods:{
-      oninputAccount(event){
-        this.accoValue=event.target.value;
-      },
-      oninputPassword(event){
-        this.passValue=event.target.value;
-      },
-      onsubmit(event){
+      // 今天基本上的修改都在请求这里
+      // 提交请求
+      doHttp(event){
         // 
         this.showLoading=true;
+        let data={
+          "type": "APP_A",
+          "data": {
+              "msg": [
+                  {
+                      "userName": this.accoValue,
+                      "password": this.passValue,
+                      "deviceToken": "",
+                      "currentVersion": ""
+                  }
+              ],
+              "size":1
+          }
 
+        }
+        console.log(data)
+        http.httpMethod('post','/user/login',data).then(response=>{
+          // 存储用户信息
+          if(response.status=="0"){
+            window.localStorage.setItem('userData',response.data[0]);
+            console.log(window.localStorage.getItem('userData'));
+
+            // 跳转
+            // 优化，其实可以根据前一个页面来进行跳转
+            this.$router.push({ 
+              path:'/healthmanager'
+            });
+
+          }
+        
+        }).catch(err=>{
+          Dialog.alert({
+            title: '提示',
+            message: '111'
+          }).then(() => {
+            this.passValue='';
+            this.showLoading=false;
+          });
+        })
         // 点击后拉起请求
         // 触发loading
         // 拿到数据然后判断状态，应该在其他地方判断，不应该是点击按钮判断，而是拿到数据之后
@@ -82,7 +115,10 @@ export default {
       }
     },
     mounted(){
-      console.log(httpMethod)
+      console.log(http)
+    },
+    created(){
+      // 优化，登陆页还有一个可以优化，登陆过后进入登录页直接跳转健康管理
     }
 };
 </script>

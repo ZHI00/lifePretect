@@ -8,7 +8,7 @@
             <!-- <mt-button class="setData_header_save" type="primary">保存</mt-button> -->
             <div 
             class="setData_header_save"
-            @click="getHttpProps"
+            @click="doHttp"
             >保存</div>
         </div>
 
@@ -149,7 +149,10 @@ import { loadavg } from 'os';
 import { RadioGroup, Radio } from 'vant';
 import { clearTimeout, setTimeout } from 'timers';
 import { Dialog } from 'vant';
-
+import http from '../../api/axios.js';
+import { Notify } from 'vant';
+// 检测是否登陆
+import routerRedirect from '../../api/routerRedirect.js'
 
 export default {
     data() {
@@ -275,14 +278,14 @@ export default {
             //比重
             [
               {
-                values:[1.000,1.005,1.010,1.015,1.020,1.025,1.030],
+                values:['1.000','1.005','1.010','1.015','1.020','1.025','1.030'],
                 defaultIndex:0
               }
             ],
             //PH
             [
               {
-                values:[5.0,6.0,6.5,7.0,7.5,8.0,8.5],
+                values:['5.0','6.0','6.5','7.0','7.5','8.0','8.5'],
                 defaultIndex:0
               }
             ],
@@ -349,7 +352,28 @@ export default {
                 defaultIndex:0
               }
             ],
-          ]
+          ],
+          // apis
+          apis:{
+            // 血压
+            sphy:'addBloodPressure',
+            // 肺活
+            pulm:'addLunginstrument',
+            // 体脂秤
+            bodyfat:'addBodyfatscale',
+            // 血糖
+            gluc:'addGlucometer',
+            // 血氧
+            oxim:'addOxygen',
+            // 血脂仪
+            LDX:'addBloodLipid',
+            // 尿酸
+            uric:'addUa',
+            // 尿液
+            urine:'addUran',
+            // 体温
+            ther:'addTemperature'
+          }
         };
     },
     methods: {
@@ -497,25 +521,76 @@ export default {
         return this.saveData[this.$route.query.deviceType][key[index]]
       },
       // 这里拿到数据了
-      getHttpProps(){
+      doHttp(){
+        // 优化，这里可以继续解耦合
+        // routerRedirect.redirect(this);
+        let userData=window.localStorage.getItem('userData');
+        // 拿到uid和token
+        
+        // 优化，可以把data定义在vue的data里，比较好看
         let data={
-          "userId":"123",
-          "token":"token",
-          "msg":[],
-          "size":1
+          "type":" APP_A",
+          data:{
+            "userId":userData.userId,
+            "token":userData.token,
+            "msg":[],
+            "size":1
+          }
+          
         }
-        data.msg[0]=this.saveData[this.$route.query.deviceType];
-        data.msg[0].manualEntry=1;
-        data.msg[0].measureDate=this.getDate+' '+this.getTime;
+        // 先让第一项成为对应的设备对象,这里面已经包含数据
+        // 优化，这里和上面可以做一个方法，获取数据以及整合
+        data.data.msg[0]=this.saveData[this.$route.query.deviceType];
+        // 设置手动记录
+        data.data.msg[0].manualEntry=1;
+        // 获取测量时间
+        data.data.msg[0].measureDate=this.getDate+' '+this.getTime;
+        console.log(data.data.msg[0])
+        
+        // 对数据完整性检验
+        // 优化，可以把检验完整性提取出来
+        for(let item in data.data.msg[0]){
+          console.log(item)
+          if(data.data.msg[0][item]===''){
+            Notify({
+              message: '还有数据没填好哦',
+              duration: 1000,
+              background: '#ff5000'
+            });
+            return
+          }
+          if(data.data.msg[0][item]==='请选择时间 '){
+            // 留意这里有个空格
+            // 留意这里有个空格
+            // 留意这里有个空格
+            Notify({
+              message: '还有时间没填哦',
+              duration: 1000,
+              background: '#ff5000'
+            });
+            return
+          }
+        }
+
+
         console.log(data)
-
-        // Dialog.alert({
-        //   title: '标题',
-        //   message: '弹窗内容'
-        // }).then(() => {
-        //   // on close
-        // });
-
+        // 拉起请求
+        http.httpMethod('post','/health/'+this.apis[this.$route.query.deviceType],data).then(response=>{
+          console.log(response);
+          Notify({
+            message: '上传成功',
+            duration: 1000,
+            background: '#44c660'
+          });
+        }).catch(err=>{
+          console.log(err)
+           Notify({
+            message: '上传失败，请重试',
+            duration: 1000,
+            background: '#ff5000'
+          });
+        })
+        
       }
     },
     components: {
@@ -534,6 +609,8 @@ export default {
     },
     created(){
       console.log(require('../../config/createRecord.js').default[this.$route.query.deviceType])
+      // routerRedirect.redirect(this)
+      routerRedirect.redirect(this);
     },
     computed:{
       
@@ -543,8 +620,10 @@ export default {
 
 <style lang="scss" >
 .setData .mint-button--normal{
+    position: absolute;
     margin-left: 20px;
-    top: 4px;
+    top: 50%;
+    transform: translateY(-50%);
     width: 60px;
     height: 60px;
     background-color: transparent;
@@ -616,7 +695,8 @@ export default {
   }
 }
 .setData .van-picker__columns{
-  height: 700px !important;
+  // 埋点，其实不用填高度都可以的
+  // height: 700px !important;
   .van-picker-column{
     height: 100% !important;
     font-size: 28px;
@@ -640,6 +720,14 @@ export default {
       font-size: 24px;
     }
   }
+}
+
+// 这个是弹出提示的样式
+// 通用样式，放在app那里吧
+.van-notify{
+  font-size: 28px;
+  height: 60px;
+  line-height: 58px;
 }
 </style>
 <style lang="scss" scoped>

@@ -5,7 +5,7 @@ import setdata from '../assets/pages/setdata/indextry.vue'
 import test from '../assets/pages/test/index.vue'
 import login from '../assets/pages/login/index.vue'
 import myinfo from '../assets/pages/myInfo'
-import health from '../assets/pages/healthManager/index.vue'
+import healthmanager from '../assets/pages/healthManager/index.vue'
 import allData from '../assets/pages/healthInfo/index.vue'
 import alldatatest from '../assets/components/infoCrad/index.vue'
 Vue.use(Router)
@@ -41,9 +41,9 @@ export default new Router({
       
     },
     {
-      path:'/health',
-      name:'health',
-      component:health
+      path:'/healthmanager',
+      name:'healthmanager',
+      component:healthmanager
     },
     {
       path:'/alldata',

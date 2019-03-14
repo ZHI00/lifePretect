@@ -175,7 +175,9 @@
           </div>
           <!-- 医生二 -->
           <div class="showDoc">
-            <div class="img">img</div>
+            <div class="img">
+              <!-- 图片 -->
+            </div>
             <div class="doctor">
               <div class="docName">
                 张医生
@@ -200,28 +202,101 @@
 </template>
 
 <script>
+import http from '../../api/axios.js'
+import routerRedirect from '../../api/routerRedirect.js'
 export default {
     props: {
 
     },
     data() {
         return {
-
+          userData:window.localStorage.getItem('userData'),
+          healthData:{
+            healthDiary:'',
+            allDeviceData:'',
+            homeDoc:''
+          }
         };
     },
     computed: {
 
     },
     created() {
-
+      routerRedirect.redirect(this);
     },
     mounted() {
-
+      this.doHttp();
     },
     watch: {
 
     },
     methods: {
+      doHttp(){
+        this.getHealthDiary();
+        this.getAllData2();
+        this.getServeUser();
+      },
+      // 健康日记
+      getHealthDiary(){
+        // let userData=window.localStorage.getItem('userData');
+        let data={
+          "type":"APP_A",
+          "data":{
+            "userId":this.userData.userId,
+            "token":this.userData.token,
+            "msg":[{
+              "recordDate":''
+            }],
+            "size":1
+          }
+        }
+        http.httpMethod('post','/record/getHealthDiary',data).then(response=>{
+          this.healthData.healthDiary=response.data[0];
+        }).catch(err=>{
+          console.log('getHealthDiary.....'+err);
+        });
+      },
+      // 获取最近测量数据
+      getAllData2(){
+        // 这里缺省一个userid，让其查询自身
+        let data={
+          "type":"APP_A",
+          "data":{
+            "userId":this.userData.userId,
+            "token":this.userData.token,
+            "msg":[{
+              "withDate":'',
+              "terminalType":"1"
+            }],
+            "size":1
+          }
+        }
+        http.httpMethod('post','/record/getAllData2',data).then(response=>{
+          this.healthData.allDeviceData=response.data[0];
+        }).catch(err=>{
+          console.log('getAllData2.....'+err);
+        });
+      },
+      // 家庭医生
+      getServeUser(){
+        let data={
+          "type":"APP_A",
+          "data":{
+            "userId":this.userData.userId,
+            "token":this.userData.token,
+            "msg":[{
+              "withDate":'',
+              "terminalType":"1"
+            }],
+            "size":1
+          }
+        }
+        http.httpMethod('post','/record/getServeUser',data).then(response=>{
+          this.healthData.homeDoc=response.data[0];
+        }).catch(err=>{
+          console.log('getServeUser.....'+err);
+        });
+      }
 
     },
     components: {
@@ -350,6 +425,7 @@ export default {
           border: 2px solid #d7d7d7;
           width: 100%;
           height: 200px;
+          font-size: 28px;
         }
 
       }

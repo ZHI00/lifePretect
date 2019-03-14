@@ -6,14 +6,20 @@
 
       <div class="dateInfo_header">
         <div class="dateInfo_header_top">
-          <span @click="goback"><</span>
+          <!-- 返回btn -->
+          <!-- <span @click="goback"><</span> -->
+          <mt-button 
+          @click.native='goback' 
+          icon="back"
+          ></mt-button>
           <h4>健康数据</h4>
         </div>
         <div 
         class="dateInfo_header_time"
-        @click.stop="showPicker"
         >
-          <div class="time_box">
+          <div class="time_box"
+          @click.stop="showPicker"
+          >
             <span class="iconfont icon-shizhong"></span>
             <span>{{dateText}}</span>
           </div>
@@ -26,10 +32,13 @@
         v-show="datapickerShow"
         @click.stop="clickPicker"
       >
-        <mu-date-picker 
-        color="#44c660"
-        @change="change"
-        :should-disable-date="allowedDates"></mu-date-picker>
+        <keep-alive>
+          <mu-date-picker 
+          color="#44c660"
+          @change="change"
+          :should-disable-date="allowedDates"
+          ></mu-date-picker>
+        </keep-alive>
       </div>
 
 
@@ -106,6 +115,7 @@
 <script>
 import { DatePicker } from 'muse-ui/lib/Picker';
 import infoCrad from '../../components/infoCrad/index.vue';
+import { setTimeout } from 'timers';
 export default {
 
     data() {
@@ -166,10 +176,13 @@ export default {
           day=date.getDate();
         }
         this.pickerDate=date.getFullYear()+'-'+month+'-'+day;
+        
+        setTimeout(()=>{
+          this.datapickerShow=false;
+        },300)
+        
 
-        this.datapickerShow=false;
-
-      }
+      },
     },
     computed:{
       dateText(){
@@ -192,7 +205,8 @@ export default {
         }else{
           return this.pickerDate;
         }
-      }
+      },
+      
     },
     components: {
       'mu-date-picker':DatePicker,
@@ -274,7 +288,7 @@ export default {
 }
 
 </style>
-<style>
+<style lang="scss">
 html,body,#app{
   height: 100vh;
 }
@@ -288,5 +302,41 @@ html,body,#app{
 .mu-datepicker{
   width: 100%;
 }
+
+.healthinfo_container .mint-button--normal{
+  position: absolute;
+  left: 30px;
+  box-sizing: border-box;
+  width: 60px;
+  height: 60px;
+  background-color:transparent;
+  color:#fff;
+  box-shadow:none;
+  .mint-button-icon{
+    transform:scale(1.5);
+  }
+}
+// 设置是否禁用
+.mu-day-button .mu-day-button-text{
+  color:#ff5000;
+  font-weight:bold;
+  // color:rgba(68,198,96,1);
+}
+.mu-datepicker-week{
+  opacity: 1;
+}
+.mu-datepicker-monthday{
+  opacity: 1 !important;
+}
+.disabled .mu-day-button-text{
+  color:#000;
+
+}
+.mu-day-button-bg{
+  height: 34px; /* no */
+  width:34px; /* no */
+}
+
+
 </style>
 

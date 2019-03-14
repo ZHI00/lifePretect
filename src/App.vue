@@ -15,7 +15,9 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+/* 通用样式 */
+/* 优化，可以设置为外部引入 */
 .icon {
   width: 1em;
   height: 1em;
@@ -23,5 +25,25 @@ export default {
   fill: currentColor;
   overflow: hidden;
 }
+// 顶部提示框
+.van-notify{
+  font-size: 28px;
+  height: 60px;
+  line-height: 58px;
+}
 
+// 弹出框
+.van-dialog__header{
+  font-size:36px;
+}
+.van-dialog__message{
+  font-size:30px;
+}
+.van-dialog__confirm{
+  height: 80px;
+  line-height:80px;
+  .van-button__text{
+    font-size:30px;
+  }
+}
 </style>

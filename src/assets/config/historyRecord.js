@@ -26,21 +26,21 @@ export default {
       [// 这里是第一页收缩压
         {
             textbefore:'收缩压',
-            num:'--',
+            num:'systolic',
             textafter:'mmHg'
         }
       ],
       [//这是第二页舒张压
         {
             textbefore:'舒张压',
-            num:'--',
+            num:'diastolic',
             textafter:'mmHg'
         },
       ],
       [//第三页心率
         {
             textbefore:'心率',
-            num:'--',
+            num:'heartRate',
             textafter:'mmHg'
         }
       ]
@@ -74,17 +74,17 @@ export default {
     history:[
       {
         textbefore:'收缩压',
-        num:'--',
+        num:'systolic',
         textafter:'mmHg'
       },
       {
         textbefore:'舒张压',
-        num:'--',
+        num:'diastolic',
         textafter:'mmHg'
       },
       {
         textbefore:'心率',
-        num:'--',
+        num:'heartRate',
         textafter:'bpm'
       },
     ]
@@ -100,17 +100,17 @@ export default {
       [// 这里是第一页收缩压
         {
             textbefore:'肺活量',
-            num:'--',
+            num:'vitalCapacity',
             textafter:'ml'
         },
         {
             textbefore:'峰流速',
-            num:'--',
+            num:'pef',
             textafter:'L/min'
         },
         {
             textbefore:'平均流速',
-            num:'--',
+            num:'af',
             textafter:'L/min'
         }
       ]
@@ -144,17 +144,17 @@ export default {
     history:[
       {
         textbefore:'肺活量',
-        num:'--',
+        num:'vitalCapacity',
         textafter:'ml'
       },
       {
         textbefore:'峰流量',
-        num:'--',
+        num:'pef',
         textafter:'mmol/L'
       },
       {
         textbefore:'平均流速',
-        num:'--',
+        num:'af',
         textafter:'mmol/L'
       }
     ]
@@ -168,52 +168,52 @@ export default {
       [// 这里是第一页
         {
             textbefore:'体重',
-            num:'--',
+            num:'weight',
             textafter:''
         },
         {
             textbefore:'体脂肪率',
-            num:'--',
+            num:'axungeRatio',
             textafter:''
         },
         {
             textbefore:'BMI',
-            num:'--',
+            num:'BMI',
             textafter:''
         },
         {
             textbefore:'身体年龄',
-            num:'--',
+            num:'bodyage',
             textafter:''
         },
         {
             textbefore:'腰臀比',
-            num:'--',
+            num:'WHR',
             textafter:''
         },
         {
             textbefore:'内脏脂肪',
-            num:'--',
+            num:'visceralFat',
             textafter:''
         },
         {
             textbefore:'人体水分',
-            num:'--',
+            num:'moisture',
             textafter:''
         },
         {
             textbefore:'人体肌肉',
-            num:'--',
+            num:'muscle',
             textafter:''
         },
         {
             textbefore:'骨骼重量',
-            num:'--',
+            num:'boneWeight',
             textafter:''
         },
         {
             textbefore:'基础代谢',
-            num:'--',
+            num:'baseMetabolism',
             textafter:''
         }
       ]
@@ -246,54 +246,54 @@ export default {
     },
     history:[
       {
-        textbefore:'体重',
-        num:'--',
-        textafter:''
+          textbefore:'体重',
+          num:'weight',
+          textafter:''
       },
       {
-        textbefore:'体脂肪率',
-        num:'--',
-        textafter:''
+          textbefore:'体脂肪率',
+          num:'axungeRatio',
+          textafter:''
       },
       {
-        textbefore:'BMI',
-        num:'--',
-        textafter:''
+          textbefore:'BMI',
+          num:'BMI',
+          textafter:''
       },
       {
-        textbefore:'身体年龄',
-        num:'--',
-        textafter:''
+          textbefore:'身体年龄',
+          num:'bodyage',
+          textafter:''
       },
       {
-        textbefore:'腰臀比',
-        num:'--',
-        textafter:''
+          textbefore:'腰臀比',
+          num:'WHR',
+          textafter:''
       },
       {
-        textbefore:'内脏脂肪',
-        num:'--',
-        textafter:''
+          textbefore:'内脏脂肪',
+          num:'visceralFat',
+          textafter:''
       },
       {
-        textbefore:'人体水分',
-        num:'--',
-        textafter:''
+          textbefore:'人体水分',
+          num:'moisture',
+          textafter:''
       },
       {
-        textbefore:'人体肌肉',
-        num:'--',
-        textafter:''
+          textbefore:'人体肌肉',
+          num:'muscle',
+          textafter:''
       },
       {
-        textbefore:'骨骼重量',
-        num:'--',
-        textafter:''
+          textbefore:'骨骼重量',
+          num:'boneWeight',
+          textafter:''
       },
       {
-        textbefore:'基础代谢',
-        num:'--',
-        textafter:''
+          textbefore:'基础代谢',
+          num:'baseMetabolism',
+          textafter:''
       }
     ]
  
@@ -322,7 +322,7 @@ export default {
     ],
     items:[
       
-      [// 这里第一页空缺
+      [// 这里第一页空缺,占位
         {
             textbefore:'收缩压',
             num:'--',
@@ -332,29 +332,29 @@ export default {
       [//这是第二页舒张压
         {
             textbefore:'心率',
-            num:'--',
+            num:'heartRate',
             textafter:'bpm'
         },
       ],
       [//第三页心率
         {
             textbefore:'睡眠时长',
-            num:'--',
+            num:'sleepDuration',
             textafter:''
         },
         {
             textbefore:'深睡',
-            num:'--',
+            num:'deepDuration',
             textafter:''
         },
         {
             textbefore:'浅睡',
-            num:'--',
+            num:'shallowDuration',
             textafter:''
         },
         {
             textbefore:'苏醒',
-            num:'--',
+            num:'wakeupDuration',
             textafter:''
         }
       ]
@@ -388,42 +388,42 @@ export default {
     history:[
       {
         textbefore:'步数',
-        num:'--',
+        num:'steps',
         textafter:'步'
       },
       {
         textbefore:'卡路里',
-        num:'--',
+        num:'kcal',
         textafter:'千卡'
       },
       {
         textbefore:'里程',
-        num:'--',
+        num:'mileage',
         textafter:'公里'
       },
       {
         textbefore:'心率',
-        num:'--',
+        num:'heartRate',
         textafter:'bpm'
       },
       {
         textbefore:'睡眠时长',
-        num:'--',
+        num:'sleepDuration',
         textafter:'小时'
       },
       {
         textbefore:'深睡',
-        num:'--',
+        num:'deepDuration',
         textafter:'分钟'
       },
       {
         textbefore:'浅睡',
-        num:'--',
+        num:'shallowDuration',
         textafter:'分钟'
       },
       {
         textbefore:'苏醒',
-        num:'--',
+        num:'wakeupDuration',
         textafter:'分钟'
       },
     ]
@@ -439,7 +439,7 @@ export default {
       [//只有一页
         {
             textbefore:'血糖浓度',
-            num:'--',
+            num:'bloodSugar',
             textafter:'mmol/L'
         }
       ],
@@ -474,7 +474,7 @@ export default {
     history:[
       {
         textbefore:'血糖浓度',
-        num:'--',
+        num:'bloodSugar',
         textafter:'mmol/L'
       }
     ]
@@ -502,16 +502,16 @@ export default {
       [// 这里是第一页收缩压
         {
             textbefore:'血氧饱和度',
-            num:'--',
+            num:'saturation',
             textafter:'%'
         }
       ],
       [//这是第二页舒张压
         {
             textbefore:'心率',
-            num:'--',
+            num:'heartRate',
             textafter:'bpm'
-        },
+        }
       ]
     ],
     btns:{
@@ -543,8 +543,13 @@ export default {
     history:[
       {
         textbefore:'血氧饱和度',
-        num:'--',
+        num:'saturation',
         textafter:'%'
+      },
+      {
+        textbefore:'心率',
+        num:'heartRate',
+        textafter:'bpm'
       }
     ]
  
@@ -576,81 +581,81 @@ export default {
       [// 这里是第一页收缩压
         {
             textbefore:'卒中风险',
-            num:'--',
+            num:'lapidRatio',
             textafter:''
         },
         {
             textbefore:'总胆固醇',
-            num:'--',
+            num:'TC',
             textafter:'mmol/L'
         },
         {
             textbefore:'甘油三脂',
-            num:'--',
+            num:'TG',
             textafter:'mmol/L'
         },
         {
             textbefore:'高密度脂蛋白胆固醇',
-            num:'--',
+            num:'HDL',
             textafter:'mmol/L'
         },
         {
             textbefore:'低密度脂蛋白胆固醇',
-            num:'--',
+            num:'LDL',
             textafter:'mmol/L'
         },
       ],
       [// 这里是第二页
         {
             textbefore:'卒中风险',
-            num:'--',
+            num:'lapidRatio',
             textafter:''
         },
         {
             textbefore:'总胆固醇',
-            num:'--',
+            num:'TC',
             textafter:'mmol/L'
         },
         {
             textbefore:'甘油三脂',
-            num:'--',
+            num:'TG',
             textafter:'mmol/L'
         },
         {
             textbefore:'高密度脂蛋白胆固醇',
-            num:'--',
+            num:'HDL',
             textafter:'mmol/L'
         },
         {
             textbefore:'低密度脂蛋白胆固醇',
-            num:'--',
+            num:'LDL',
             textafter:'mmol/L'
         },
       ],
       [// 这里是第三页
         {
             textbefore:'卒中风险',
-            num:'--',
+            num:'lapidRatio',
             textafter:''
         },
         {
             textbefore:'总胆固醇',
-            num:'--',
+            num:'TC',
             textafter:'mmol/L'
         },
         {
             textbefore:'甘油三脂',
-            num:'--',
+            num:'TG',
             textafter:'mmol/L'
         },
         {
             textbefore:'高密度脂蛋白胆固醇',
-            num:'--',
+            num:'HDL',
             textafter:'mmol/L'
         },
         {
             textbefore:'低密度脂蛋白胆固醇',
-            num:'--',
+            num:'LDL',
             textafter:'mmol/L'
         },
       ],
@@ -684,29 +689,29 @@ export default {
     },
     history:[
       {
-        textbefore:'卒中风险',
-        num:'--',
-        textafter:''
+          textbefore:'卒中风险',
+          num:'lapidRatio',
+          textafter:''
       },
       {
-        textbefore:'总胆固醇',
-        num:'--',
-        textafter:'mmol/L'
+          textbefore:'总胆固醇',
+          num:'TC',
+          textafter:'mmol/L'
       },
       {
-        textbefore:'甘油三酯',
-        num:'--',
-        textafter:'mmol/L'
+          textbefore:'甘油三脂',
+          num:'TG',
+          textafter:'mmol/L'
       },
       {
-        textbefore:'高密度脂蛋白胆固醇',
-        num:'--',
-        textafter:'mmol/L'
+          textbefore:'高密度脂蛋白胆固醇',
+          num:'HDL',
+          textafter:'mmol/L'
       },
       {
-        textbefore:'低密度脂蛋白肝固醇',
-        num:'--',
-        textafter:'mmol/L'
+          textbefore:'低密度脂蛋白胆固醇',
+          num:'LDL',
+          textafter:'mmol/L'
       }
     ]
  
@@ -721,7 +726,7 @@ export default {
       [// 这里是第一页收缩压
         {
             textbefore:'尿酸',
-            num:'--',
+            num:'UA',
             textafter:'mmol/L'
         }
       ],
@@ -756,7 +761,7 @@ export default {
     history:[
       {
         textbefore:'尿酸',
-        num:'--',
+        num:'UA',
         textafter:'mmol/L'
       }
     ]
@@ -784,120 +789,119 @@ export default {
       [// 这里是第一页收缩压
         {
             textbefore:'比重',
-            num:'--',
+            num:'SG',
             textafter:''
         },
         {
             textbefore:'PH值',
-            num:'--',
+            num:'pH',
             textafter:''
         },
         {
             textbefore:'葡萄糖',
-            num:'--',
+            num:'GLU',
             textafter:''
         },
         {
             textbefore:'蛋白质',
-            num:'--',
+            num:'PRO',
             textafter:''
         },
         {
             textbefore:'尿胆原',
-            num:'--',
+            num:'UBG',
             textafter:''
         },
         {
             textbefore:'潜血',
-            num:'--',
+            num:'BLD',
             textafter:''
         },
         {
             textbefore:'胆红素',
-            num:'--',
+            num:'BIL',
             textafter:''
         },
         {
             textbefore:'亚硝酸盐',
-            num:'--',
+            num:'NIT',
             textafter:''
         },
         {
             textbefore:'白细胞',
-            num:'--',
+            num:'LEU',
             textafter:''
         },
         {
             textbefore:'酮体',
-            num:'--',
+            num:'KET',
             textafter:''
         },
         {
             textbefore:'VC维生素C',
-            num:'--',
+            num:'VC',
             textafter:''
         },
-
 
       ],
       [// 这里是第一页收缩压
         {
-          textbefore:'比重',
-          num:'--',
-          textafter:''
-      },
-      {
-          textbefore:'PH值',
-          num:'--',
-          textafter:''
-      },
-      {
-          textbefore:'葡萄糖',
-          num:'--',
-          textafter:''
-      },
-      {
-          textbefore:'蛋白质',
-          num:'--',
-          textafter:''
-      },
-      {
-          textbefore:'尿胆原',
-          num:'--',
-          textafter:''
-      },
-      {
-          textbefore:'潜血',
-          num:'--',
-          textafter:''
-      },
-      {
-          textbefore:'胆红素',
-          num:'--',
-          textafter:''
-      },
-      {
-          textbefore:'亚硝酸盐',
-          num:'--',
-          textafter:''
-      },
-      {
-          textbefore:'白细胞',
-          num:'--',
-          textafter:''
-      },
-      {
-          textbefore:'酮体',
-          num:'--',
-          textafter:''
-      },
-      {
-          textbefore:'VC维生素C',
-          num:'--',
-          textafter:''
-      },
+            textbefore:'比重',
+            num:'SG',
+            textafter:''
+        },
+        {
+            textbefore:'PH值',
+            num:'pH',
+            textafter:''
+        },
+        {
+            textbefore:'葡萄糖',
+            num:'GLU',
+            textafter:''
+        },
+        {
+            textbefore:'蛋白质',
+            num:'PRO',
+            textafter:''
+        },
+        {
+            textbefore:'尿胆原',
+            num:'UBG',
+            textafter:''
+        },
+        {
+            textbefore:'潜血',
+            num:'BLD',
+            textafter:''
+        },
+        {
+            textbefore:'胆红素',
+            num:'BIL',
+            textafter:''
+        },
+        {
+            textbefore:'亚硝酸盐',
+            num:'NIT',
+            textafter:''
+        },
+        {
+            textbefore:'白细胞',
+            num:'LEU',
+            textafter:''
+        },
+        {
+            textbefore:'酮体',
+            num:'KET',
+            textafter:''
+        },
+        {
+            textbefore:'VC维生素C',
+            num:'VC',
+            textafter:''
+        },
 
-    ],
+      ],
     ],
     btns:{
       week:{
@@ -927,60 +931,60 @@ export default {
     },
     history:[
       {
-        textbefore:'比重',
-        num:'--',
-        textafter:''
+          textbefore:'比重',
+          num:'SG',
+          textafter:''
       },
       {
-        textbefore:'PH值',
-        num:'--',
-        textafter:''
+          textbefore:'PH值',
+          num:'pH',
+          textafter:''
       },
       {
-        textbefore:'葡萄糖',
-        num:'--',
-        textafter:''
+          textbefore:'葡萄糖',
+          num:'GLU',
+          textafter:''
       },
       {
-        textbefore:'蛋白质',
-        num:'--',
-        textafter:''
+          textbefore:'蛋白质',
+          num:'PRO',
+          textafter:''
       },
       {
-        textbefore:'尿胆原',
-        num:'--',
-        textafter:''
+          textbefore:'尿胆原',
+          num:'UBG',
+          textafter:''
       },
       {
-        textbefore:'潜血',
-        num:'--',
-        textafter:''
+          textbefore:'潜血',
+          num:'BLD',
+          textafter:''
       },
       {
-        textbefore:'胆红素',
-        num:'--',
-        textafter:''
+          textbefore:'胆红素',
+          num:'BIL',
+          textafter:''
       },
       {
-        textbefore:'亚硝酸盐',
-        num:'--',
-        textafter:''
+          textbefore:'亚硝酸盐',
+          num:'NIT',
+          textafter:''
       },
       {
-        textbefore:'白细胞',
-        num:'--',
-        textafter:''
+          textbefore:'白细胞',
+          num:'LEU',
+          textafter:''
       },
       {
-        textbefore:'酮体',
-        num:'--',
-        textafter:''
+          textbefore:'酮体',
+          num:'KET',
+          textafter:''
       },
       {
-        textbefore:'VC维生素C',
-        num:'--',
-        textafter:''
-      }
+          textbefore:'VC维生素C',
+          num:'VC',
+          textafter:''
+      },
     ]
  
   },
@@ -993,7 +997,7 @@ export default {
       [// 这里是第一页收缩压
         {
             textbefore:'摄氏度',
-            num:'--',
+            num:'temperature',
             textafter:''
         }
       ]
@@ -1027,7 +1031,7 @@ export default {
     history:[
       {
         textbefore:'摄氏度',
-        num:'--',
+        num:'temperature',
         textafter:'℃'
       }
     ]
@@ -1086,7 +1090,6 @@ export default {
       stepNum:false,  //这个是手环特有的
       timeFrame:false,  //这个是血糖专门的
       moreHistroy:false
-
     }
  
   },

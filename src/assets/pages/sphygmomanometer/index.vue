@@ -155,7 +155,7 @@
                     <div>
                         <p 
                         class="detail"
-                        v-for="(item,index) in preset.items[navbarIndex]"
+                        v-for="(item,index) in preset.items[selected]"
                         :key="index"
                         >{{item.textbefore}}<span class="detail_data"> 参数 </span>  {{item.textafter}}</p>
                     </div>
@@ -163,6 +163,7 @@
             </div>
 
             <!-- 手环信息 -->
+            <!-- 手环这里直接绑定就好 -->
             <div 
             class="handle_info"
             v-if="show('stepNum') && selected===0">
@@ -251,6 +252,7 @@ import { Circle } from 'vant';
 import { Collapse, CollapseItem } from 'vant';
 import { Badge } from 'mint-ui';
 import { Loadmore } from 'mint-ui';
+import http from  '../../api/axios.js';
 
 
 export default {
@@ -269,13 +271,9 @@ export default {
             // 导航条index,初始为0
             selected:0,
             tips:'暂时未有数据',
-            // navId
-            typeId: 0,
             // 按钮Id
             btnId:2,
 
-            // title
-            title:'',
             // 圆环信息status
             statusText:'异常',
 
@@ -374,7 +372,20 @@ export default {
                 }
             ],
             //上拉加载更多
-            allLoaded:false
+            allLoaded:false,
+            apis:{
+                sphy:'getBloodPressure',
+                pulm:'getLunginstrument',
+                bodyfat:'getBodyfatscale',
+                bangle:'getBand',
+                gluc:'getGlucometer',
+                oxim:'getOxygen',
+                LDX:'getBloodLipid',
+                uric:'getUa',
+                urine:'getUran',
+                ther:'getTemperature',
+                elec:'getEcg'
+            }
         }
     },
     mounted() {
@@ -387,7 +398,7 @@ export default {
         // 改变圆环字体颜色
         this.status();
 
-        this.getHttpProps()
+        this.doHttp();
         
 
     },
@@ -427,7 +438,6 @@ export default {
             }
             Array.prototype.forEach.call(document.getElementsByClassName('btn'),(item,index)=>{
                 item.style.backgroundColor='rgb(204,204,204)';
-                // console.log(item)
             })
             event.target.style.backgroundColor='#44c660';
 
@@ -466,7 +476,7 @@ export default {
             // 设置导航条初始化
             var onclick = new Event('click',{"bubbles":true});
            
-            document.getElementsByClassName('mint-tab-item')[this.navbarIndex] &&document.getElementsByClassName('mint-tab-item')[this.navbarIndex].dispatchEvent(onclick);
+            document.getElementsByClassName('mint-tab-item')[this.selected] &&document.getElementsByClassName('mint-tab-item')[this.selected].dispatchEvent(onclick);
 
             // 设置日期按钮初始化
             document.getElementsByClassName('btn')[0] &&document.getElementsByClassName('btn')[0].dispatchEvent(onclick);
@@ -600,15 +610,13 @@ export default {
             
         },
         // 获取请求参数
-        getHttpProps(){
-            let btnKey=Object.keys(this.preset.btns)[this.btnId];
-            let props_1;
+        doHttp(){
+            // let props_1;
             let data={
                 "userId":"123",
                 "token":"token",
                 "msg":[
                     {
-                        "withDate":"2",
                         "pageIndex":"1",
                         "pageSize":"20",
                         "terminalType":"1"
@@ -618,13 +626,17 @@ export default {
 
             };
 
-            // 这里是用来拼凑接口api地址的
-            if(this.preset.show.tabbar){
-                props_1=this.preset.tabbarItem[this.selected].id;
-            }
+            
+            // if(this.preset.show.tabbar){
+            //     props_1=this.preset.tabbarItem[this.selected].id;
+            // }
+
+            // 添加withDate
             if(this.preset.show.btnGroup){
-                data.msg.withDate=this.preset.btns[btnKey].id;
+                data.msg[0].withDate=this.btnId;
             }
+
+            
             if(this.preset.show.timeFrame){
                 console.log(this.timeFrameIndex)
                 data.msg[0].measureType=this.preset.timeFrame[this.timeFrameIndex];
@@ -632,6 +644,14 @@ export default {
             
             console.log(data)
             // return allProps;
+            let url=this.apis[this.$route.query.deviceType];
+            console.log(url)
+            http.httpMethod('post',url,data).then(response=>{
+                console.log(response);
+            }).catch(err=>{
+                console.log(err)
+            })
+
         },
         loadBottom(){
             console.log('下拉更新了')
@@ -656,17 +676,17 @@ export default {
         text() {
             //正常还是异常，应该是服务器的反馈 
             // 根据返回的数据设置状态
-            // if(this.statusText==='正常'){
-            //     return '正常'
-            // }else if(this.statusText==='异常'){
-            //     return '异常'
-            // }
-
-            if(this.returnData[0].status.indexOf('0')!==-1){
+            if(this.statusText==='正常'){
                 return '正常'
-            }else{
+            }else if(this.statusText==='异常'){
                 return '异常'
             }
+
+            // if(this.returnData[0].status.indexOf('0')!==-1){
+            //     return '正常'
+            // }else{
+            //     return '异常'
+            // }
         },
         statusLabelClass(){
             // 这里应该要获取一下index
@@ -694,7 +714,7 @@ export default {
                 }
             }
         },
-        // getHttpProps(){
+        // doHttp(){
         //     let btnKey=Object.keys(this.preset.btns)[this.btnId];
         //     let props_1;
         //     let data={
@@ -746,8 +766,10 @@ export default {
     }
     // 修改返回按钮
     .his_container .mint-button--normal{
+        position: absolute;
         margin-left: 20px;
-        top: 4px;
+        top: 50%;
+        transform: translateY(-50%);
         width: 60px;
         height: 60px;
         background-color: transparent;
@@ -1105,8 +1127,7 @@ export default {
         margin-bottom:20px;
         .handle_info_stepNum{
             display:flex;
-            
-            
+            color:#000 !important;
         }
     }
     .handle_info_detail{

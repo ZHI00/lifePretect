@@ -5,8 +5,8 @@
         <div class="title">{{title}}</div>
         <!-- 埋点 测量时间 -->
         <div 
-        v-if="msg.measureDate"
-        >{{msg.measureDate}}</div>
+        v-if="msg.measureTime"
+        >{{msg.measureTime}}</div>
       </div>
       <div class="panel_content">
         <div class="iconbox">
@@ -51,15 +51,35 @@ export default {
         type:String,
         default:'sphy'
       },
-      // msg:{
-      //   type:Object,
-      //   default(){
-      //     return {
-      //       measureDate:'2019-03-01 18:02:02'
-      //     }
-      //   }
-      // }
+      deviceData:{
+        type:Object,
+        default(){
+          return {
+            "deviceName":"血压计",
+            "status":"正常",
+            "measureTime":"2019-03-12 18:12",
+            "param":[
+              {
+                "paramName":"diastolic",
+                "paramValue":"132"
+              },
+              {
+                "paramName":"systolic",
+                "paramValue":"122"
+              },
+              {
+                "paramName":"heartRate",
+                "paramValue":"100"
+              }
+            ]
+          }
+        }
+      }
     },
+
+    // 数据处理问题，对于msg，遍历param，把key=value。最后把time加上去
+    // 数据处理成功
+    
     data() {
         return {
           preset:{
@@ -126,24 +146,7 @@ export default {
               prop:['temperature']
             },
           },
-          msg:{
-            diastolic:123,
-            systolic:321,
-            heartRate:110,
-            SG:1,
-            pH:1,
-            GLU:1,
-            PRO:1,
-            UBG:1,
-            BLD:1,
-            BIL:1,
-            NIT:1,
-            LEU:1,
-            KET:1,
-            VC:1,
-            measureDate:'2019-03-01 18:02:02'
-
-          }
+          msg:{}
         };
     },
     computed: {
@@ -158,6 +161,23 @@ export default {
         return index_;
       },
       
+    },
+    methods:{
+      changeProps(){
+        // let msg={};
+        this.deviceData.param.forEach((item,index) => {
+          this.msg[item.paramName]=item.paramValue;
+        });
+        this.msg.measureTime=this.deviceData.measureTime;
+        console.log(this.msg)
+        // return msg;
+      }
+    },
+    mounted(){
+      
+    },
+    created(){
+      this.changeProps();
     }
 };
 </script>
