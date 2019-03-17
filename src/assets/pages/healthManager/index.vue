@@ -17,7 +17,7 @@
           <div class="bloodPressure">
             <div class="data_detail_title">
               <span class="device">血压计</span>
-              <span>2018-04-02 18:07:00</span>
+              <span>{{healthData.allDeviceData.data[0].measureData[0].measureTime}}</span>
             </div>
             <!-- 数据详情 -->
             <div class="detail">
@@ -30,17 +30,18 @@
               </div>
               <!-- 收缩压 -->
               <div class="data">
-                <p>106 mmHg</p>
+                <!-- 这里用指定index的paramValue吧，应该顺序是固定的吧 -->
+                <p><span>{{healthData.allDeviceData.data[0].measureData[0].param[0].paramValue}}</span> mmHg</p>
                 <P>收缩压</P>
               </div>
               <!-- 舒张压 -->
               <div class="data">
-                <p>106 mmHg</p>
+                <p><span>{{healthData.allDeviceData.data[0].measureData[0].param[1].paramValue}}</span> mmHg</p>
                 <P>舒张压</P>
               </div>
               <!-- 心率 -->
               <div class="data">
-                <p>78 mmHg</p>
+                <p><span>{{healthData.allDeviceData.data[0].measureData[0].param[2].paramValue}}</span> mmHg</p>
                 <P>心率</P>
               </div>
             </div>
@@ -50,7 +51,7 @@
           <div class="bloodGlucose">
             <div class="data_detail_title">
               <span class="device">血糖仪</span>
-              <span>2018-04-02 18:07:00</span>
+              <span>{{healthData.allDeviceData.data[0].measureData[1].measureTime}}</span>
             </div>
             <!-- 数据详情 -->
             <div class="detail">
@@ -63,7 +64,7 @@
               </div>
               <!-- 收缩压 -->
               <div class="data">
-                <p>106 mmol/L</p>
+                <p><span>{{healthData.allDeviceData.data[0].measureData[1].param[0].paramValue}}</span> mmol/L</p>
                 <P></P>
               </div>
              
@@ -75,11 +76,12 @@
             <div class="docEvaluate_title">
               <div>医生评价</div>
               <div>
-                <span class="docName">张医生</span>
+                <!-- 参数 -->
+                <span class="docName">{{healthData.allDeviceData.data[0].analysis[0].doctorSign}}</span>
                 <span>2019-02-02 15:25</span>
               </div>
             </div>
-            <textarea class="input_textarea"></textarea>
+            <textarea class="input_textarea" v-text="healthData.allDeviceData.data[0].analysis[0].doctorSign"></textarea>
           </div>
         </div>
       </div>
@@ -127,6 +129,7 @@
             </div>
           </div>
         </div>
+        <!-- 饮食 -->
         <div class="healthManager_healthDiary_food">
             
             <div class="healthManager_healthDiary_food_title"><span>饮食</span></div>
@@ -222,10 +225,10 @@ export default {
 
     },
     created() {
-      routerRedirect.redirect(this);
+      // routerRedirect.redirect(this);
     },
     mounted() {
-      this.doHttp();
+      // this.doHttp();
     },
     watch: {
 
@@ -251,7 +254,7 @@ export default {
           }
         }
         http.httpMethod('post','/record/getHealthDiary',data).then(response=>{
-          this.healthData.healthDiary=response.data[0];
+          this.healthData.healthDiary=response;
         }).catch(err=>{
           console.log('getHealthDiary.....'+err);
         });
@@ -272,7 +275,7 @@ export default {
           }
         }
         http.httpMethod('post','/record/getAllData2',data).then(response=>{
-          this.healthData.allDeviceData=response.data[0];
+          this.healthData.allDeviceData=response;
         }).catch(err=>{
           console.log('getAllData2.....'+err);
         });
@@ -292,7 +295,7 @@ export default {
           }
         }
         http.httpMethod('post','/record/getServeUser',data).then(response=>{
-          this.healthData.homeDoc=response.data[0];
+          this.healthData.homeDoc=response;
         }).catch(err=>{
           console.log('getServeUser.....'+err);
         });

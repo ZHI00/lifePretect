@@ -8,6 +8,7 @@ import myinfo from '../assets/pages/myInfo'
 import healthmanager from '../assets/pages/healthManager/index.vue'
 import allData from '../assets/pages/healthInfo/index.vue'
 import alldatatest from '../assets/components/infoCrad/index.vue'
+// import deviceChose from '../assets/pages/deviceChose/index.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -54,7 +55,12 @@ export default new Router({
       path:'/alldatatest',
       name:'alldatatest',
       component:alldatatest
-    }
+    },
+    // {
+    //   path:'/deviceChose',
+    //   name:'deviceChose',
+    //   component:deviceChose
+    // }
 
   ]
 })

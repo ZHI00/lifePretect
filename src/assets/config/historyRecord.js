@@ -374,7 +374,7 @@ export default {
     timeFrame:[1,2,3,4,5,6],
     // 特殊设置
     show:{
-      setdata:true,
+      setdata:false,
       tabbar:true,      //导航条
       chart:true,
       btnGroup:true,
