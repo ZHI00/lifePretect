@@ -10,7 +10,7 @@
         <mu-circular-progress 
         class="demo-circular-progress circular-progress" 
         mode="determinate" 
-        :value="{(response.data[0].healthPoint.point/100)*80}" 
+        :value="(response.data[0].healthPoint.point/100)*80" 
         color="rgba(255,255,255,0.8)" 
         :stroke-width="2" 
         :size="circleSize+37"
@@ -32,13 +32,14 @@
           <div class="testTime">评估时间:<span :v-text="response.data[0].healthPoint.evaluationDate">2019-03-04</span></div>
         </div>
       </div>
+
       <div class="title">智能设备</div>
       <div class="deviceItem">
         <!-- 血压计 -->
         <router-link :to="{path:'/sphy',query:{deviceType:'sphy'}}">
           <div class="item">
             <div class="left">
-              <span class="iconfont icon-dianshi"></span>
+              <span class="iconfont icon-xieyaji"></span>
               <div>
                 <p class="item_title">血压计</p>
                 <p class="item_detail">高血压监测与预防，血压数据异常预警</p>
@@ -52,7 +53,7 @@
         <router-link :to="{path:'/sphy',query:{deviceType:'pulm'}}">
           <div class="item">
             <div class="left">
-              <span class="iconfont icon-dianshi"></span>
+              <span class="iconfont icon-feihuoyi"></span>
               <div>
                 <p class="item_title">肺活仪</p>
                 <p class="item_detail">肺活量测量与锻炼，可测评及提高肺部机能</p>
@@ -66,7 +67,7 @@
         <router-link :to="{path:'/sphy',query:{deviceType:'bodyfat'}}">
           <div class="item">
             <div class="left">
-              <span class="iconfont icon-dianshi"></span>
+              <span class="iconfont icon-tizhicheng-"></span>
               <div>
                 <p class="item_title">体脂秤</p>
                 <p class="item_detail">测量内脏脂肪、体脂率、基础代谢等十项指标</p>
@@ -81,7 +82,7 @@
         <router-link :to="{path:'/sphy',query:{deviceType:'bangle'}}">
           <div class="item">
             <div class="left">
-              <span class="iconfont icon-dianshi"></span>
+              <span class="iconfont icon-shouhuan"></span>
               <div>
                 <p class="item_title">手环</p>
                 <p class="item_detail">实时心率、计步、卡路里等数据监测，预警功能</p>
@@ -96,7 +97,7 @@
         <router-link :to="{path:'/sphy',query:{deviceType:'gluc'}}">
           <div class="item">
             <div class="left">
-              <span class="iconfont icon-dianshi"></span>
+              <span class="iconfont icon-xietangyi-"></span>
               <div>
                 <p class="item_title">血糖仪</p>
                 <p class="item_detail">糖尿病监测及预防，血糖数据异常预警</p>
@@ -109,10 +110,10 @@
 
 
          <!-- 血氧仪 -->
-         <router-link :to="{path:'/sphy',query:{deviceType:'oxim'}}">
+        <router-link :to="{path:'/sphy',query:{deviceType:'oxim'}}">
           <div class="item">
             <div class="left">
-              <span class="iconfont icon-dianshi"></span>
+              <span class="iconfont icon-xietangyi2"></span>
               <div>
                 <p class="item_title">血氧仪</p>
                 <p class="item_detail">测量人体血氧饱和度、血氧数据异常预警</p>
@@ -120,14 +121,14 @@
             </div>
             <div class="right">></div>
           </div>
-         </router-link>
+        </router-link>
         
 
          <!-- 血脂仪 -->
-         <router-link :to="{path:'/sphy',query:{deviceType:'LDX'}}">
+        <router-link :to="{path:'/sphy',query:{deviceType:'LDX'}}">
           <div class="item">
             <div class="left">
-              <span class="iconfont icon-dianshi"></span>
+              <span class="iconfont icon-xietangyi"></span>
               <div>
                 <p class="item_title">血脂仪</p>
                 <p class="item_detail">测量总胆固醇、甘油三酯等五项指标</p>
@@ -142,7 +143,7 @@
          <router-link :to="{path:'/sphy',query:{deviceType:'uric'}}">
           <div class="item">
             <div class="left">
-              <span class="iconfont icon-dianshi"></span>
+              <span class="iconfont icon-xietangyi1"></span>
               <div>
                 <p class="item_title">尿酸分析仪</p>
                 <p class="item_detail">快速量测尿酸，帮助您顶起监控尿酸</p>
@@ -157,7 +158,7 @@
          <router-link :to="{path:'/sphy',query:{deviceType:'urine'}}">
           <div class="item">
             <div class="left">
-              <span class="iconfont icon-dianshi"></span>
+              <span class="iconfont icon-niaoyefenxi"></span>
               <div>
                 <p class="item_title">尿液分析仪</p>
                 <p class="item_detail">测量PH比值、蛋白质、白细胞等11项指标</p>
@@ -173,7 +174,7 @@
          <router-link :to="{path:'/sphy',query:{deviceType:'ther'}}">
           <div class="item">
             <div class="left">
-              <span class="iconfont icon-dianshi"></span>
+              <span class="iconfont icon-tiwen"></span>
               <div>
                 <p class="item_title">体温计</p>
                 <p class="item_detail">24小时监测实时体温，体温异常预警</p>
@@ -188,7 +189,7 @@
         <router-link :to="{path:'/sphy',query:{deviceType:'elec'}}">
           <div class="item">
             <div class="left">
-              <span class="iconfont icon-dianshi"></span>
+              <span class="iconfont icon-xindian"></span>
               <div>
                 <p class="item_title">心电仪</p>
                 <p class="item_detail">实时监测动态心电状态，精准判断心脏疾病</p>
@@ -297,7 +298,7 @@ export default {
 
 <style lang="scss" scoped>
 .iconfont{
-  font-size: 80px;
+  font-size: 55px;
 }
 .deviceChose{
   a{
@@ -360,7 +361,7 @@ export default {
       display:flex;
       justify-content: space-between;
       align-items: center;
-      border-top: 1px solid #d7d7d7;
+      border-top: 2px solid #d7d7d7;
       .left{
         display:flex;
         align-items: center;
@@ -387,7 +388,7 @@ export default {
       }
     }
     & .item:last-child{
-      border-bottom: 1px solid #d7d7d7;
+      border-bottom: 2px solid #d7d7d7;
     }
   }
 }

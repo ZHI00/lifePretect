@@ -181,7 +181,7 @@ export default {
       text-align: center;
       height: 100px;
       box-sizing: border-box;
-      border: solid 1px #000;
+      border: solid 2px #000;
       line-height: 100px !important;
     }
     &>div:first-child{

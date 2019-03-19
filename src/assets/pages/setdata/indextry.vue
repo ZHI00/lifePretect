@@ -851,7 +851,7 @@ export default {
       margin:0 12px;
       width:200px;
       border:none;
-      border-bottom:1px solid #d7d7d7;
+      border-bottom:2px solid #d7d7d7;
       font-size:22px;
     }
   }

@@ -3,6 +3,7 @@
     <!-- <img src="./assets/logo.png"> -->
     <!-- <div :class="$style.div"></div> -->
     <router-view/>
+    <!-- <div class="test">11111111111</div> -->
   </div>
 </template>
 
@@ -46,4 +47,9 @@ export default {
     font-size:30px;
   }
 }
+
+// .test{
+//   position: fixed;
+//   bottom: 0;
+// }
 </style>

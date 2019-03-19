@@ -941,7 +941,7 @@ export default {
         
     // }
 </style>
-<style lang="scss" >
+<style lang="scss">
 // 这是环形的样式
     // .circle{
     //     width:50%;

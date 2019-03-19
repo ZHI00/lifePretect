@@ -11,13 +11,14 @@
           <div class="more">更多</div>
           <div class="add">添加</div>
         </div>
+        <!-- 埋点，这里开始写数据 -->
         <!-- 数据栏 -->
         <div class="data_detail">
           <!-- 血压计 -->
           <div class="bloodPressure">
             <div class="data_detail_title">
               <span class="device">血压计</span>
-              <span>{{healthData.allDeviceData.data[0].measureData[0].measureTime}}</span>
+              <span>2019-03-03 15:15</span>
             </div>
             <!-- 数据详情 -->
             <div class="detail">
@@ -26,22 +27,22 @@
                 <!-- <svg class="icon" aria-hidden="true">
                   <use xlink:href="#icon-dianshi"></use>
                 </svg> -->
-                <span class="iconfont icon-dianshi"></span>
+                <span class="iconfont icon-xieyaji"></span>
               </div>
               <!-- 收缩压 -->
               <div class="data">
                 <!-- 这里用指定index的paramValue吧，应该顺序是固定的吧 -->
-                <p><span>{{healthData.allDeviceData.data[0].measureData[0].param[0].paramValue}}</span> mmHg</p>
+                <p><span>110</span> mmHg</p>
                 <P>收缩压</P>
               </div>
               <!-- 舒张压 -->
               <div class="data">
-                <p><span>{{healthData.allDeviceData.data[0].measureData[0].param[1].paramValue}}</span> mmHg</p>
+                <p><span>112</span> mmHg</p>
                 <P>舒张压</P>
               </div>
               <!-- 心率 -->
               <div class="data">
-                <p><span>{{healthData.allDeviceData.data[0].measureData[0].param[2].paramValue}}</span> mmHg</p>
+                <p><span>113</span> mmHg</p>
                 <P>心率</P>
               </div>
             </div>
@@ -51,7 +52,7 @@
           <div class="bloodGlucose">
             <div class="data_detail_title">
               <span class="device">血糖仪</span>
-              <span>{{healthData.allDeviceData.data[0].measureData[1].measureTime}}</span>
+              <span>2019-03-03 15:15</span>
             </div>
             <!-- 数据详情 -->
             <div class="detail">
@@ -60,11 +61,11 @@
                 <!-- <svg class="icon" aria-hidden="true">
                   <use xlink:href="#icon-xietangyi"></use>
                 </svg> -->
-                <span class="iconfont icon-xietangyi"></span>
+                <span class="iconfont icon-xietangyi-"></span>
               </div>
               <!-- 收缩压 -->
               <div class="data">
-                <p><span>{{healthData.allDeviceData.data[0].measureData[1].param[0].paramValue}}</span> mmol/L</p>
+                <p><span>114</span> mmol/L</p>
                 <P></P>
               </div>
              
@@ -77,11 +78,13 @@
               <div>医生评价</div>
               <div>
                 <!-- 参数 -->
-                <span class="docName">{{healthData.allDeviceData.data[0].analysis[0].doctorSign}}</span>
+                <!-- {{healthData.allDeviceData.data[0].analysis[0].doctorSign}} -->
+                <span class="docName">zhang</span>
                 <span>2019-02-02 15:25</span>
               </div>
             </div>
-            <textarea class="input_textarea" v-text="healthData.allDeviceData.data[0].analysis[0].doctorSign"></textarea>
+            <!--  v-text="healthData.allDeviceData.data[0].analysis[0].doctorSign" -->
+            <textarea class="input_textarea"></textarea>
           </div>
         </div>
       </div>
@@ -205,6 +208,7 @@
 </template>
 
 <script>
+// 血压计、血糖仪、医生评价、健康日记、家庭医生需要写数据
 import http from '../../api/axios.js'
 import routerRedirect from '../../api/routerRedirect.js'
 export default {
@@ -309,18 +313,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.icon {
-  // width: 4em;
-  // height: 4em;
-  width: 4em;
-  height: 4em;
-  vertical-align: -0.15em;
-  fill: currentColor;
-  overflow: hidden;
-  // color:#000;
-}
+// .icon {
+//   // width: 4em;
+//   // height: 4em;
+//   width: 4em;
+//   height: 4em;
+//   vertical-align: -0.15em;
+//   fill: currentColor;
+//   overflow: hidden;
+//   // color:#000;
+// }
 .iconfont{
-  font-size: 90px;
+  font-size: 55px;
 }
 .healthManager_container{
   // padding-left:30px;
@@ -605,7 +609,7 @@ export default {
       text-align: center;
       height: 100px;
       box-sizing: border-box;
-      border: solid 1px #000;
+      border: solid 2px #d7d7d7;
       line-height: 100px !important;
     }
     &>div:first-child{
