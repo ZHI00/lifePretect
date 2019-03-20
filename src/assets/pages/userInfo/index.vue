@@ -47,7 +47,9 @@
         ref="healthInfo" 
         @confirm="uploadEvaluate"
         v-if="showModule[0]"
-        :showGoback="false"></health-info>
+        :showGoback="false"
+        :showEvaluate="true"
+        ></health-info>
 
         <!-- 健康日记/管理 -->
         <health-manager v-if="showModule[1]"></health-manager>
@@ -59,6 +61,7 @@
 import healthInfo from '../healthInfo/index'
 import healthManager from '../healthManager/index'
 import { setTimeout } from 'timers';
+import { Notify } from 'vant';
 export default {
     data() {
         return {
@@ -97,6 +100,11 @@ export default {
         // 用await/async
         setTimeout(()=>{
           this.$refs.healthInfo.showMaskLayer();
+          Notify({
+            message: '评价成功或者失败',
+            duration: 1000,
+            background: '#1989fa'
+          });
         },1000)
         console.log(value)
       }

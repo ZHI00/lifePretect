@@ -33,7 +33,7 @@
           <van-checkbox
             v-for="(item, index) in checkboxList"
             :key="index"
-            :name="item"
+            :name="checkboxData[index]"
             checked-color="rgb(69, 194, 153)"
           >
             星期{{ item }}
@@ -59,6 +59,7 @@ import { Select,Option } from 'muse-ui/lib/Select'
 import { Notify } from 'vant';
 import { RadioGroup, Radio } from 'vant';
 import { Checkbox, CheckboxGroup } from 'vant';
+import http from '../../api/axios.js'
 export default {
     data() {
         return {
@@ -74,17 +75,20 @@ export default {
           // 复选框数据
           checkboxList:['一','二','三','四','五','六','日'],
           checkboxResult:[],
-          checkboxData:['0','1','2','3','4','5','6'],
+          checkboxData:['周一','周二','周三','周四','周五','周六','周日'],
 
           // 文本框内容
-          textareaValue:''
+          textareaValue:'',
+
+          // axios返回的数据
+          response:''
         };
     },
     computed: {
       
     },
     created() {
-
+      
     },
     mounted() {
       
@@ -96,16 +100,39 @@ export default {
       onclick(){
         console.log(this.checkboxResult);
       },
-      dohttp(){
+      async dohttp(){
         // 这里根据axios结果显示notify内容和颜色
-        Notify({
-          message: '提交成功或者失败',
-          duration: 1000,
-          background: '#1989fa'
-        });
-        console.log(this.pickerDisease)
-        console.log(this.textareaValue)
-        console.log(this.radio)
+        let data={
+          // 病种可以通过上一级页面传过来
+          "receice_id":"待定",
+          "content":this.textareaValue,
+          "cycle":this.checkboxResult.toString(),
+          // 病种可以通过上一级页面传过来
+          "illness":"发烧????"
+        }
+        console.log(data)
+        try{
+          this.response=await http.httpMethod('post','doctor/addNotice',data);
+          if(this.response.flag==true){
+            Notify({
+              message: '提交成功',
+              duration: 1000,
+              background: 'rgb(69, 194, 153)'
+            });
+          }
+        }catch(err){
+          console.log(err+'  ...personalRemind...');
+
+          Notify({
+            message: '网络不好，请重试',
+            duration: 1000,
+            background: '#ff5000'
+            // background: 'rgb(69, 194, 153)'
+          });
+        }
+        
+
+        
       },
       test(){
         return 1

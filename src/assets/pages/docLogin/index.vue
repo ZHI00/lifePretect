@@ -69,39 +69,31 @@ export default {
         // 
         this.showLoading=true;
         let data={
-          "type": "APP_A",
-          "data": {
-              "msg": [
-                  {
-                      "userName": this.accoValue,
-                      "password": this.passValue,
-                      "deviceToken": "",
-                      "currentVersion": ""
-                  }
-              ],
-              "size":1
-          }
-
+          "userName": this.accoValue,
+          "password": this.passValue
         }
         console.log(data)
-        http.httpMethod('post','/user/login',data).then(response=>{
+        http.httpMethod('post','/doctor/login',data).then(response=>{
           // 存储用户信息
-          if(response.status=="0"){
-            window.localStorage.setItem('userData',response.data[0]);
-            console.log(window.localStorage.getItem('userData'));
+          if(response.flag==true){
+            window.localStorage.setItem('docData',response.data);
+            console.log(window.localStorage.getItem('docData'));
 
             // 跳转
             // 优化，其实可以根据前一个页面来进行跳转
-            this.$router.push({ 
-              path:'/healthmanager'
-            });
+
+
+            //跳转到院外慢病互动管理 
+            // this.$router.push({ 
+            //   path:'/healthmanager'
+            // });
 
           }
         
         }).catch(err=>{
           Dialog.alert({
             title: '提示',
-            message: '111'
+            message: '密码或者账号错误'
           }).then(() => {
             this.passValue='';
             this.showLoading=false;

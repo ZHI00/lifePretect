@@ -191,7 +191,7 @@ export default {
       },
       showEvaluate:{
         type:Boolean,
-        default:true
+        default:false
       }
     },
     data() {
@@ -368,6 +368,8 @@ export default {
         this.showLoading=true;
         this.$emit('confirm',this.textValue);
         console.log(this.showLoading)
+
+        // 这里等用户信息那里上传之后关闭
         // setTimeout(()=>{
         //   this.showMaskLayer();
         // },1000);
@@ -593,6 +595,7 @@ export default {
     .button{
       width: 95%;
       height: 80px;
+      font-size:26px;
       display: flex;
       box-sizing: border-box;
       text-align: center;
@@ -611,9 +614,14 @@ export default {
         &:last-child{
           display:flex;
           justify-content: center;
+          &>span:first-child{
+            position: absolute;
+          }
           .loading{
             display:flex;
             align-items: center;
+            position: relative;
+            left: 45px;
           }
         }
       }

@@ -101,7 +101,7 @@ export default {
         }).catch(err=>{
           Dialog.alert({
             title: '提示',
-            message: '111'
+            message: '账号或密码错误'
           }).then(() => {
             this.passValue='';
             this.showLoading=false;
