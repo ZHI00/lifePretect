@@ -1,28 +1,30 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import sphygmomanometer from '../assets/pages/sphygmomanometer'
+import device from '../assets/pages/device'
 import setdata from '../assets/pages/setdata/indextry.vue'
 import test from '../assets/pages/test/index.vue'
 import userLogin from '../assets/pages/userLogin/index.vue'
 import docLogin from '../assets/pages/docLogin/index.vue'
-import myinfo from '../assets/pages/myInfo'
-import healthmanager from '../assets/pages/healthManager/index.vue'
-import allData from '../assets/pages/healthInfo/index.vue'
-import alldatatest from '../assets/components/infoCrad/index.vue'
+import myInfo from '../assets/pages/myInfo'
+import healthManager from '../assets/pages/healthManager/index.vue'
+import healthInfo from '../assets/pages/healthInfo/index.vue'
+// import alldatatest from '../assets/components/infoCrad/index.vue'
+// 这里开始是今周的任务
 import deviceChose from '../assets/pages/deviceChose/index.vue'
 import personalRemind from '../assets/pages/personalRemind/index.vue'
 import globalRemind from '../assets/pages/globalRemind/index.vue'
 import remindHistory from '../assets/pages/remindHistory/index.vue'
 import userList from '../assets/pages/userList/index.vue'
 import userInfo from '../assets/pages/userInfo/index.vue'
+
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
-      path: '/sphy',
-      name: 'sphygmomanometer',
-      component: sphygmomanometer,
+      path: '/device',
+      name: 'device',
+      component: device,
       
     },
     {
@@ -47,26 +49,26 @@ export default new Router({
       component:docLogin
     },
     {
-      path: '/myinfo',
-      name: 'myinfo',
-      component: myinfo,
+      path: '/myInfo',
+      name: 'myInfo',
+      component: myInfo,
       
     },
     {
-      path:'/healthmanager',
-      name:'healthmanager',
-      component:healthmanager
+      path:'/healthManager',
+      name:'healthManager',
+      component:healthManager
     },
     {
-      path:'/alldata',
-      name:'alldata',
-      component:allData
+      path:'/healthInfo',
+      name:'healthInfo',
+      component:healthInfo
     },
-    {
-      path:'/alldatatest',
-      name:'alldatatest',
-      component:alldatatest
-    },
+    // {
+    //   path:'/alldatatest',
+    //   name:'alldatatest',
+    //   component:alldatatest
+    // },
     {
       path:'/deviceChose',
       name:'deviceChose',
@@ -98,9 +100,9 @@ export default new Router({
       component:userInfo,
       children:[
         {
-          path:'/alldata',
-          name:'alldata',
-          component:allData
+          path:'/healthManager',
+          name:'healthManager',
+          component:healthManager
         }
       ]
     }

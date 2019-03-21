@@ -36,7 +36,7 @@
       <div class="title">智能设备</div>
       <div class="deviceItem">
         <!-- 血压计 -->
-        <router-link :to="{path:'/sphy',query:{deviceType:'sphy'}}">
+        <router-link :to="{path:'/device',query:{deviceType:'sphy'}}">
           <div class="item">
             <div class="left">
               <span class="iconfont icon-xieyaji"></span>
@@ -50,7 +50,7 @@
         </router-link>
 
         <!-- 肺活仪 -->
-        <router-link :to="{path:'/sphy',query:{deviceType:'pulm'}}">
+        <router-link :to="{path:'/device',query:{deviceType:'pulm'}}">
           <div class="item">
             <div class="left">
               <span class="iconfont icon-feihuoyi"></span>
@@ -64,7 +64,7 @@
         </router-link>
 
         <!-- 体脂秤 -->
-        <router-link :to="{path:'/sphy',query:{deviceType:'bodyfat'}}">
+        <router-link :to="{path:'/device',query:{deviceType:'bodyfat'}}">
           <div class="item">
             <div class="left">
               <span class="iconfont icon-tizhicheng-"></span>
@@ -79,7 +79,7 @@
 
 
         <!-- 手环 -->
-        <router-link :to="{path:'/sphy',query:{deviceType:'bangle'}}">
+        <router-link :to="{path:'/device',query:{deviceType:'bangle'}}">
           <div class="item">
             <div class="left">
               <span class="iconfont icon-shouhuan"></span>
@@ -94,7 +94,7 @@
 
 
         <!-- 血糖仪 -->
-        <router-link :to="{path:'/sphy',query:{deviceType:'gluc'}}">
+        <router-link :to="{path:'/device',query:{deviceType:'gluc'}}">
           <div class="item">
             <div class="left">
               <span class="iconfont icon-xietangyi-"></span>
@@ -110,7 +110,7 @@
 
 
          <!-- 血氧仪 -->
-        <router-link :to="{path:'/sphy',query:{deviceType:'oxim'}}">
+        <router-link :to="{path:'/device',query:{deviceType:'oxim'}}">
           <div class="item">
             <div class="left">
               <span class="iconfont icon-xietangyi2"></span>
@@ -125,7 +125,7 @@
         
 
          <!-- 血脂仪 -->
-        <router-link :to="{path:'/sphy',query:{deviceType:'LDX'}}">
+        <router-link :to="{path:'/device',query:{deviceType:'LDX'}}">
           <div class="item">
             <div class="left">
               <span class="iconfont icon-xietangyi"></span>
@@ -140,7 +140,7 @@
         
 
          <!-- 尿酸分析仪 -->
-         <router-link :to="{path:'/sphy',query:{deviceType:'uric'}}">
+         <router-link :to="{path:'/device',query:{deviceType:'uric'}}">
           <div class="item">
             <div class="left">
               <span class="iconfont icon-xietangyi1"></span>
@@ -155,7 +155,7 @@
         
 
          <!-- 尿液分析仪 -->
-         <router-link :to="{path:'/sphy',query:{deviceType:'urine'}}">
+         <router-link :to="{path:'/device',query:{deviceType:'urine'}}">
           <div class="item">
             <div class="left">
               <span class="iconfont icon-niaoyefenxi"></span>
@@ -171,7 +171,7 @@
         
 
          <!-- 体温计 -->
-         <router-link :to="{path:'/sphy',query:{deviceType:'ther'}}">
+         <router-link :to="{path:'/device',query:{deviceType:'ther'}}">
           <div class="item">
             <div class="left">
               <span class="iconfont icon-tiwen"></span>
@@ -186,7 +186,7 @@
         
 
         <!-- 心电仪 -->
-        <router-link :to="{path:'/sphy',query:{deviceType:'elec'}}">
+        <router-link :to="{path:'/device',query:{deviceType:'elec'}}">
           <div class="item">
             <div class="left">
               <span class="iconfont icon-xindian"></span>

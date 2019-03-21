@@ -4,7 +4,7 @@
       v-model="show"
       position="top"
       >内容</van-popup>
-      <router-link :to="{path:'/sphy',query:{deviceType:'bodyfat'}}">
+      <router-link :to="{path:'/device',query:{deviceType:'bodyfat'}}">
       <div class="test"></div></router-link> 
 
       <div 

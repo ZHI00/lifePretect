@@ -3,9 +3,11 @@
         <section class="globalRemind">
             <div class="Remind_title">
                 <h3>全局提醒</h3>
-                <div class="iconBox">
-                    <span class="iconfont icon-icon"></span>
-                </div>
+                <router-link :to="{path:'/globalRemind'}">
+                    <div class="iconBox">
+                        <span class="iconfont icon-icon"></span>
+                    </div>
+                </router-link>
             </div>
             <div class="Remind_content">
                 <!-- 第一项 -->
@@ -180,7 +182,7 @@ export default {
 .iconfont{
     font-size: 28px;
     color: #fff;
-    line-height: 35px;
+    // line-height: 35px;
 }
 
 .remindHistory{
@@ -199,6 +201,9 @@ export default {
             width: 55px;
             background-color: rgb(104, 104, 114);
             text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             border-radius: 10px;
         }
     }
@@ -241,7 +246,4 @@ export default {
         }
     }
 }
-</style>
-<style lang="scss">
-
 </style>

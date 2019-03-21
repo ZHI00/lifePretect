@@ -15,7 +15,12 @@
         <span class="right">
           <span class="disease">糖尿病</span>
           <span v-if="false"><span class="iconfont icon-xiugai"></span>修改</span>
-          <span><span class="iconfont icon-jia"></span>个人提醒</span>
+          <!-- 这里要不要传个用户参数过去呢 -->
+          <!-- 或者用用session存储 -->
+          <router-link :to="{path:'personanRemind'}">
+            <span><span class="iconfont icon-jia"></span>个人提醒</span>
+          </router-link>
+          
         </span>
       </div>
 
@@ -153,6 +158,9 @@ export default {
       }
     }
     .right{
+      a{
+        color: #000;
+      }
       &>span{
         padding-right: 10px;
       }
