@@ -51,6 +51,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import '~../../css/test.scss';
 .test{
   width: 50px;
   height: 50px;

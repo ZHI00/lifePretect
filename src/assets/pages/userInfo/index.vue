@@ -27,19 +27,19 @@
       <!-- 导航 -->
       <nav @click="clickNav">
         <!-- <router-link :to="{path:'/alldata'}"> -->
-          <div>健康数据</div>
+          <div :class="{'navColor':showModule[0]}">健康数据</div>
         <!-- </router-link> -->
         <!--  -->
         <!-- <router-link :to="{path:'/alldata'}"> -->
-          <div>健康日记</div>
+          <div :class="{'navColor':showModule[1]}">健康日记</div>
         <!-- </router-link> -->
         <!--  -->
         <!-- <router-link :to="{path:'/alldata'}"> -->
-          <div>个人病例</div>
+          <div :class="{'navColor':showModule[2]}">个人病例</div>
         <!-- </router-link> -->
         
         <!-- <router-link :to="{path:'/alldata'}"> -->
-          <div>体检报告</div>
+          <div :class="{'navColor':showModule[3]}">体检报告</div>
         <!-- </router-link> -->
        
       </nav>
@@ -127,6 +127,9 @@ export default {
   font-size: 28px;
   padding-right: 5px;
   color: rgb(69, 194, 153);
+}
+.navColor{
+  color: rgb(69, 194, 153) !important;
 }
 .userInfo{
   font-size: 28px;
