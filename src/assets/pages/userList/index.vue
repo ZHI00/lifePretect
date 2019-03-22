@@ -2,36 +2,39 @@
 <!-- 这里得有一个默认头像才行 -->
     <div class="userList">
       <!-- 一项对话 -->
-      <div class="user_item">
-        <div class="left">
-          <div class="user_via">
-            <!-- 到时候这个路径就是获取返回回来的src -->
-            <img 
-            v-if="false"
-            src="../../img/via.jpg"
-            alt="头像">
-            <span
-            v-else 
-            class="iconfont icon-home"></span>
+      <router-link :to="{path:'userInfo'}">
+
+        <div class="user_item">
+          <div class="left">
+            <div class="user_via">
+              <!-- 到时候这个路径就是获取返回回来的src -->
+              <img 
+              v-if="false"
+              src="../../img/via.jpg"
+              alt="头像">
+              <span
+              v-else 
+              class="iconfont icon-home"></span>
+            </div>
+            <div class="user_content">
+              <!-- 第一行 -->
+              <p class="row_one">
+                <span class="user_name">张三</span>
+                <span class="disease_type">糖尿病</span>
+              </p>
+              <!-- 第二行 -->
+              <p class="row_two">
+                <span class="msg_time">
+                  <span class="msg_status"></span>
+                  <span>2019-03-03 15:55</span>  
+                </span>
+                <span class="msg">测量了血压，血氧血压，血氧血血氧血氧血氧</span>
+              </p>
+            </div>
           </div>
-          <div class="user_content">
-            <!-- 第一行 -->
-            <p class="row_one">
-              <span class="user_name">张三</span>
-              <span class="disease_type">糖尿病</span>
-            </p>
-            <!-- 第二行 -->
-            <p class="row_two">
-              <span class="msg_time">
-                <span class="msg_status"></span>
-                <span>2019-03-03 15:55</span>  
-              </span>
-              <span class="msg">测量了血压，血氧血压，血氧血血氧血氧血氧</span>
-            </p>
-          </div>
+          <span class="right">></span>
         </div>
-        <span class="right">></span>
-      </div>
+      </router-link>
 
       <foooter class="footer"></foooter>
     </div>
@@ -76,6 +79,9 @@ export default {
   color: #fff;
 }
 .userList{
+  a{
+    color: #000;
+  }
   .user_item{
     position: relative;
     font-size: 24px;
