@@ -13,13 +13,13 @@
             checked-color="rgb(69, 194, 153)"><span class="disease">限病种</span>
 
           <!-- 这里是选择框 -->
-          <mu-select 
-          multiple 
-          separator="，"
-          v-model="pickerDisease"
-          ref="muSelect">
-             <mu-option v-for="(disease,index) in diseases" :key="index" :label="disease" :value="disease"></mu-option>
-          </mu-select> 
+            <mu-select 
+            multiple 
+            separator="，"
+            v-model="pickerDisease"
+            ref="muSelect">
+              <mu-option v-for="(disease,index) in diseases" :key="index" :label="disease" :value="disease"></mu-option>
+            </mu-select> 
           </van-radio>
         </van-radio-group>
       </div>
@@ -183,7 +183,7 @@ export default {
       .van-radio{
         display:flex;
         align-items: center;
-        min-height: 80px;
+        min-height: 80px; 
         position: relative;
         .disease{
           position: absolute;
@@ -194,6 +194,9 @@ export default {
         }
         .van-radio__label{
           line-height: 60px;
+          // position: relative;
+          display: flex;
+          align-items: center;
         }
       }
       
@@ -236,26 +239,29 @@ export default {
 }
 </style>
 <style lang="scss">
-.mu-select-content{
+.personanRemind .mu-select-content{
   padding-left: 20px;
   height: 100%;
 }
-.mu-selection-text{
+.personanRemind .mu-selection-text{
   font-size: 28px;
   height: 30px;
   line-height:30px;
 }
-.mu-list-dense .mu-item-title{
+.personanRemind .mu-list-dense .mu-item-title{
   font-size: 28px;
 }
-.mu-select-input{
+.personanRemind .mu-select-input{
   height: 0px;
 }
 .mu-option.is-selected .mu-item{
   color: rgb(69, 194, 153);
 }
 .mu-secondary-text-color{
-  color: rgb(69, 194, 153);
+  color: rgb(69, 194, 153) !important;
+}
+.personanRemind .user .mu-input{
+  min-height:0 !important;
 }
 </style>
 

@@ -7,14 +7,14 @@
         </div>
         
         <!-- 外圆环 -->
-        <mu-circular-progress 
+        <!-- <mu-circular-progress 
         class="demo-circular-progress circular-progress" 
         mode="determinate" 
         :value="(response.data[0].healthPoint.point/100)*80" 
         color="rgba(255,255,255,0.8)" 
         :stroke-width="2" 
         :size="circleSize+37"
-        v-if="circleSize>90"></mu-circular-progress>
+        v-if="circleSize>90"></mu-circular-progress> -->
         
         <!-- 内圆环 -->
         <mu-circular-progress 
@@ -26,11 +26,11 @@
         :size="circleSize+20"
         v-if="circleSize>90"></mu-circular-progress>
 
-        <div class="testText">
+        <!-- <div class="testText">
           <div class="testStatus">健康指数<span v-text="computeStatus">中等</span></div>
           <div class="score" :v-text="response.data[0].healthPoint.point">23</div>
           <div class="testTime">评估时间:<span :v-text="response.data[0].healthPoint.evaluationDate">2019-03-04</span></div>
-        </div>
+        </div> -->
       </div>
 
       <div class="title">智能设备</div>
@@ -300,6 +300,13 @@ export default {
 .iconfont{
   font-size: 55px;
 }
+.mint-button{
+  margin-left:20px;
+  background-color:transparent;
+  box-shadow:none;
+  color:#fff;
+  transform:scale(1.5);
+}
 .deviceChose{
   a{
     color:#000;
@@ -361,7 +368,7 @@ export default {
       display:flex;
       justify-content: space-between;
       align-items: center;
-      border-top: 2px solid #d7d7d7;
+      border-top: 1px solid #d7d7d7;
       .left{
         display:flex;
         align-items: center;
@@ -388,17 +395,9 @@ export default {
       }
     }
     & .item:last-child{
-      border-bottom: 2px solid #d7d7d7;
+      border-bottom: 1px solid #d7d7d7;
     }
   }
 }
 </style>
-<style lang="scss" scoped>
-.mint-button{
-  margin-left:20px;
-  background-color:transparent;
-  box-shadow:none;
-  color:#fff;
-  transform:scale(1.5);
-}
-</style>
+
