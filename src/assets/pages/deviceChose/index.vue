@@ -275,8 +275,8 @@ export default {
         let data={
           "type": " APP_A",
           "data": {
-              "userId": this.userData.data[0].userId,
-              "token": this.userData.data[0].token,
+              "userId": 'this.userData.data[0].userId',
+              "token": 'this.userData.data[0].token',
               "msg": [],
               "size": 1
           }

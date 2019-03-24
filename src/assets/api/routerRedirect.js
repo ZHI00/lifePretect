@@ -15,7 +15,7 @@ export default {
       });
       setTimeout(()=>{
         self.$router.push({
-          path:'/login'
+          path:'/userLogin'
         })
       },1000)
     }
